@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { loadUser, getProfile } from '../../actions/auth';
+import { loadUser, getProfile, getAllProfiles } from '../../actions/auth';
 import { getUserPosts } from '../../actions/post';
 import PropTypes from 'prop-types';
 import Spinner from '../layouts/spinner';
@@ -11,10 +11,18 @@ import ProfilePostContent from '../Posts/ProfilePostContent';
 import UserActivity from './UserActivity';
 import '../css/style1.css';
 
-const Profile = ({ auth: { user, profile }, getProfile, getUserPosts, postState: { userPosts, loading }, match }) => {
+const Profile = ({
+  auth: { user, profile },
+  getProfile,
+  getAllProfiles,
+  getUserPosts,
+  postState: { userPosts, loading },
+  match,
+}) => {
   useEffect(() => {
     loadUser();
     getProfile(match.params.userName);
+    getAllProfiles();
     getUserPosts(match.params.userName);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getProfile]);
@@ -72,4 +80,4 @@ const mapStateToProps = (state) => ({
   postState: state.post,
 });
 
-export default connect(mapStateToProps, { loadUser, getProfile, getUserPosts })(Profile);
+export default connect(mapStateToProps, { loadUser, getProfile, getAllProfiles, getUserPosts })(Profile);
