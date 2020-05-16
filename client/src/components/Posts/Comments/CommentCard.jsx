@@ -28,7 +28,7 @@ const CommentCard = ({ auth: { user, profiles, loading }, post, comment, deleteC
         className="profile-photo-sm"
       />
       <p>
-        <Link to={`/profile/${findUser.userName}`} className="profile-link">
+        <Link to={`/profile/${findUser().userName}`} className="profile-link">
           {findUser().fullName}
         </Link>{' '}
         {comment.text}{' '}
