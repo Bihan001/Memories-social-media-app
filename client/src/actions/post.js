@@ -18,8 +18,6 @@ import {
   DELETE_COMMENT,
 } from './types';
 
-const proxy = 'http://localhost:5000';
-
 const config = {
   headers: {
     'Content-Type': 'application/json',
@@ -34,7 +32,7 @@ const fileConfig = {
 
 export const getPost = (postid) => async (dispatch) => {
   try {
-    const res = await axios.get(`${proxy}/api/post/${postid}`);
+    const res = await axios.get(`/api/post/${postid}`);
     dispatch({
       type: GET_POST,
       payload: res.data,
@@ -48,7 +46,7 @@ export const getPost = (postid) => async (dispatch) => {
 
 export const getAllPosts = () => async (dispatch) => {
   try {
-    const res = await axios.get(`${proxy}/api/post/all`);
+    const res = await axios.get(`/api/post/all`);
     dispatch({
       type: GET_ALLPOSTS,
       payload: res.data,
@@ -62,7 +60,7 @@ export const getAllPosts = () => async (dispatch) => {
 
 export const getUserPosts = (userName) => async (dispatch) => {
   try {
-    const res = await axios.get(`${proxy}/api/post/user/${userName}`);
+    const res = await axios.get(`/api/post/user/${userName}`);
     dispatch({
       type: GET_USERPOSTS,
       payload: res.data,
@@ -79,7 +77,7 @@ export const createPost = (formData, userName) => async (dispatch) => {
     type: UPLOAD_REQUEST,
   });
   try {
-    const res = await axios.post(`${proxy}/api/post/new`, formData, fileConfig);
+    const res = await axios.post(`/api/post/new`, formData, fileConfig);
     dispatch({
       type: GET_POST,
       payload: res.data,
@@ -110,7 +108,7 @@ export const createPost = (formData, userName) => async (dispatch) => {
 
 export const updateLikes = (postid, userName) => async (dispatch) => {
   try {
-    const res = await axios.put(`${proxy}/api/post/update-like/${postid}`, null, config);
+    const res = await axios.put(`/api/post/update-like/${postid}`, null, config);
     dispatch({
       type: UPDATE_LIKES,
       payload: res.data,
@@ -133,7 +131,7 @@ export const updateLikes = (postid, userName) => async (dispatch) => {
 
 export const deletePost = (postid, userName) => async (dispatch) => {
   try {
-    await axios.delete(`${proxy}/api/post/delete/${postid}`, null, config);
+    await axios.delete(`/api/post/delete/${postid}`, null, config);
     dispatch({
       type: DELETE_POST,
     });
@@ -153,7 +151,7 @@ export const deletePost = (postid, userName) => async (dispatch) => {
 
 export const addComment = ({ postid, text }, userName) => async (dispatch) => {
   try {
-    const res = await axios.put(`${proxy}/api/post/comment/add`, { postid, text }, config);
+    const res = await axios.put(`/api/post/comment/add`, { postid, text }, config);
     dispatch({
       type: ADD_COMMENT,
       payload: res.data,
@@ -176,7 +174,7 @@ export const addComment = ({ postid, text }, userName) => async (dispatch) => {
 
 export const deleteComment = ({ postid, commentid }, userName) => async (dispatch) => {
   try {
-    const res = await axios.delete(`${proxy}/api/post/comment/delete/${postid}/${commentid}`, null, config);
+    const res = await axios.delete(`/api/post/comment/delete/${postid}/${commentid}`, null, config);
     dispatch({
       type: DELETE_COMMENT,
       payload: res.data,

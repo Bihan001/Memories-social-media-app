@@ -16,8 +16,6 @@ import {
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
 
-const proxy = 'http://localhost:5000';
-
 const config = {
   headers: {
     'Content-Type': 'application/json',
@@ -31,7 +29,7 @@ export const loadUser = () => async (dispatch) => {
     setAuthToken(localStorage.getItem('token'));
   }
   try {
-    const res = await axios.get(`${proxy}/api/auth`);
+    const res = await axios.get(`/api/auth`);
     dispatch({
       type: USER_LOADED,
       payload: res.data,
@@ -45,7 +43,7 @@ export const loadUser = () => async (dispatch) => {
 
 export const getProfile = (userName) => async (dispatch) => {
   try {
-    const res = await axios.get(`${proxy}/api/auth/profile/${userName}`);
+    const res = await axios.get(`/api/auth/profile/${userName}`);
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
@@ -59,7 +57,7 @@ export const getProfile = (userName) => async (dispatch) => {
 
 export const getAllProfiles = () => async (dispatch) => {
   try {
-    const res = await axios.get(`${proxy}/api/auth/all`);
+    const res = await axios.get(`/api/auth/all`);
     dispatch({
       type: GET_PROFILES,
       payload: res.data,
@@ -79,7 +77,7 @@ export const register = (formData) => async (dispatch) => {
   });
   const body = JSON.stringify(formData);
   try {
-    const res = await axios.post(`${proxy}/api/users`, body, config);
+    const res = await axios.post(`/api/users`, body, config);
     dispatch(setAlert('Account created successfully', 'success'));
     dispatch({
       type: REGISTER_SUCCESS,
@@ -107,7 +105,7 @@ export const login = (email, password) => async (dispatch) => {
   });
   const body = JSON.stringify({ email, password });
   try {
-    const res = await axios.post(`${proxy}/api/auth`, body, config);
+    const res = await axios.post(`/api/auth`, body, config);
     dispatch(setAlert('Logged in successfully', 'success'));
     dispatch({
       type: LOGIN_SUCCESS,
@@ -132,7 +130,7 @@ export const login = (email, password) => async (dispatch) => {
 export const editUser = (formData, history, edit = false) => async (dispatch) => {
   const body = JSON.stringify(formData);
   try {
-    await axios.put(`${proxy}/api/users/edit`, body, config);
+    await axios.put(`/api/users/edit`, body, config);
     dispatch(loadUser());
     dispatch(setAlert('Account updated successfully', 'success'));
     if (!edit) {
@@ -153,7 +151,7 @@ export const editUser = (formData, history, edit = false) => async (dispatch) =>
 export const updateFollow = ({ user_userName, profile_userName }) => async (dispatch) => {
   const body = JSON.stringify({ user_userName, profile_userName });
   try {
-    await axios.put(`${proxy}/api/users/update-follow`, body, config);
+    await axios.put(`/api/users/update-follow`, body, config);
     dispatch(loadUser());
     dispatch(getAllProfiles());
     // dispatch(getProfile(profile_userName));
