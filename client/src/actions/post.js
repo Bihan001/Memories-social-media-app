@@ -135,6 +135,7 @@ export const deletePost = (postid, userName) => async (dispatch) => {
     dispatch({
       type: DELETE_POST,
     });
+    dispatch(getAllPosts());
     dispatch(getUserPosts(userName));
   } catch (err) {
     dispatch({

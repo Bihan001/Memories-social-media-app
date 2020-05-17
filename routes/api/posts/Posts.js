@@ -8,7 +8,9 @@ router.get('/all', auth, async (req, res) => {
   try {
     var posts = await Post.find();
     const user = await User.findById(req.user.id);
-    posts = posts.filter((post) => user.following.find((profile) => profile.user === post.user));
+    posts = posts.filter(
+      (post) => user.following.find((profile) => profile.user === post.user) || post.user === user.userName
+    );
     posts = posts.reverse();
     res.status(200).json(posts);
   } catch (err) {

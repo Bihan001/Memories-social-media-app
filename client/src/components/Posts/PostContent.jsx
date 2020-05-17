@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CommentCard from './Comments/CommentCard';
 import NewComment from './Comments/NewComment';
-import { updateLikes } from '../../actions/post';
+import { updateLikes, deletePost } from '../../actions/post';
 import Spinner from '../layouts/spinner';
 
-const PostContent = ({ auth: { user, profiles, loading }, post, updateLikes }) => {
+const PostContent = ({ auth: { user, profiles, loading }, post, updateLikes, deletePost }) => {
   var fUser = null;
   const findUser = () => {
     if (fUser === null) {
@@ -49,6 +49,11 @@ const PostContent = ({ auth: { user, profiles, loading }, post, updateLikes }) =
             >
               <MDBIcon icon="thumbs-up" /> {post.likes.length}
             </Link>
+            {post && user && post.user === user.userName ? (
+              <Link className="text-red mx-3" onClick={() => deletePost(post._id, user.userName)}>
+                <MDBIcon icon="trash-alt" />
+              </Link>
+            ) : null}
           </div>
           <div className="line-divider"></div>
           <div className="post-text">
@@ -73,4 +78,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { updateLikes })(PostContent);
+export default connect(mapStateToProps, { updateLikes, deletePost })(PostContent);
