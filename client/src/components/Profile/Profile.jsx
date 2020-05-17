@@ -13,6 +13,7 @@ import '../css/style1.css';
 
 const Profile = ({
   auth: { user, profile },
+  loadUser,
   getProfile,
   getAllProfiles,
   getUserPosts,

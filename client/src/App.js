@@ -53,7 +53,7 @@ const App = () => {
             <PrivateRoute exact path="/followers/:userName" component={ProfileFollowers} />
             <PrivateRoute exact path="/profile/about/:userName" component={ProfileAbout} />
             <PrivateRoute exact path="/profile/edit/:userName" component={ProfileEdit} />
-            <PrivateRoute component={NotFound} />
+            {/* <PrivateRoute component={NotFound} /> */}
           </Switch>
         </Fragment>
       </Router>
