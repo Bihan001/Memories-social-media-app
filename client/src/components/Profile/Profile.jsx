@@ -29,6 +29,8 @@ const Profile = ({
   }, [getProfile]);
   return !profile || loading ? (
     <Spinner />
+  ) : profile.userName !== match.params.userName ? (
+    <Spinner />
   ) : (
     <Fragment>
       <Navbar />

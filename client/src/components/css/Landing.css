@@ -78,7 +78,7 @@
 .log-reg-area form .already-have {
   display: inline-block;
   font-size: 14px;
-  text-align: right;
+  text-align: left;
   width: fit-content;
 }
 
@@ -129,6 +129,10 @@
   margin-top: 0;
 }
 
+.md-form .validate {
+  margin-bottom: 0;
+}
+
 .form-group .md-form {
   margin-top: 0;
 }
@@ -160,6 +164,7 @@
 }
 .signup3 .file-field span {
   cursor: pointer;
+  word-wrap: normal;
 }
 
 input[type='file' i] {

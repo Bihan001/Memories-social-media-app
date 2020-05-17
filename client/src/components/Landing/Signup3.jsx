@@ -41,18 +41,20 @@ const Signup3 = ({
       />
       <form className="md-form my-3 signup3 container" onSubmit={(e) => onSubmit(e)}>
         <div className="file-field">
-          <div className="btn btn-outline-success btn-sm float-left waves-effect waves-light">
-            <span>Choose file</span>
-            <input type="file" onChange={(e) => changeText(e)} />
-          </div>
-          <div className="file-path-wrapper">
-            <input
-              className="file-path validate"
-              id="pp_text"
-              type="text"
-              placeholder="Upload your file"
-              value={filename}
-            />
+          <div className="d-inline-flex flex-column flex-md-row">
+            <div className="btn btn-outline-success btn-sm float-left waves-effect waves-light">
+              <span>Choose file</span>
+              <input type="file" onChange={(e) => changeText(e)} style={{ width: 'fit-content' }} />
+            </div>
+            <div className="file-path-wrapper">
+              <input
+                className="file-path validate"
+                id="pp_text"
+                type="text"
+                placeholder="Upload your file"
+                value={filename}
+              />
+            </div>
           </div>
         </div>
         <div className="submit-btns pt-2 pb-0 my-0">

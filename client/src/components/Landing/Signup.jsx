@@ -44,40 +44,42 @@ const Signup = ({
     onsignup2();
   }
   return (
-    <div class="log-reg-area reg">
-      <h2 class="log-title text-center">Register</h2>
+    <div className="log-reg-area reg">
+      <h2 className="log-title text-center">Register</h2>
       <form className="needs-validation" onSubmit={(e) => onSubmit(e)} noValidate>
-        <div class="row grey-text" id="signupNames">
-          <div class="col-6">
-            <MDBInput
-              label="First name"
-              icon="user"
-              group
-              type="text"
-              validate
-              required
-              error="wrong"
-              success="right"
-              name="firstName"
-              value={firstName}
-              onChange={(e) => onChange(e)}
-            />
-          </div>
-          <div class="col-6">
-            <MDBInput
-              label="Last name"
-              icon="user"
-              group
-              type="text"
-              validate
-              required
-              error="wrong"
-              success="right"
-              name="lastName"
-              value={lastName}
-              onChange={(e) => onChange(e)}
-            />
-            <i class="mtrl-select"></i>
+        <div className="form-group">
+          <div className="row grey-text" id="signupNames">
+            <div className="col-12 col-md-6">
+              <MDBInput
+                label="First name"
+                icon="user"
+                group
+                type="text"
+                validate
+                required
+                error="wrong"
+                success="right"
+                name="firstName"
+                value={firstName}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+            <div className="col-12 col-md-6">
+              <MDBInput
+                label="Last name"
+                icon="user"
+                group
+                type="text"
+                validate
+                required
+                error="wrong"
+                success="right"
+                name="lastName"
+                value={lastName}
+                onChange={(e) => onChange(e)}
+              />
+              <i className="mtrl-select"></i>
+            </div>
           </div>
         </div>
         <div className="form-group grey-text">
@@ -136,8 +138,8 @@ const Signup = ({
             onChange={(e) => onChange(e)}
           />
         </div>
-        <div className="d-flex">
-          <div className="checkbox">
+        <div className="d-flex flex-column flex-md-row ">
+          {/* <div className="checkbox">
             <MDBInput
               label={
                 <>
@@ -150,15 +152,22 @@ const Signup = ({
               type="checkbox"
               id="checkbox1"
             />
+          </div> */}
+          <div className="submit-btns">
+            <MDBBtn
+              outline
+              color="cyan"
+              size="sm"
+              type="submit"
+              disabled={request && !isAuthenticated}
+              style={{ marginLeft: 0 }}
+            >
+              Register
+            </MDBBtn>
           </div>
-          <Link to="#" title="" className="forgot-pwd ml-auto" onClick={onsignin}>
+          <Link to="#" title="" className="forgot-pwd pt-2" onClick={onsignin}>
             Already have an account?
           </Link>
-        </div>
-        <div class="submit-btns">
-          <MDBBtn outline color="cyan" size="sm" type="submit" disabled={request && !isAuthenticated}>
-            Register
-          </MDBBtn>
         </div>
       </form>
     </div>

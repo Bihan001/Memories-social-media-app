@@ -21,7 +21,7 @@ const PersonCard = ({ profile, auth: { user }, updateFollow }) => {
         </div>
         <div className="col-md-7 col-sm-7">
           <h5>
-            <Link to={`/profile/${profile.userName}`} className="profile-link">
+            <Link to={`/profile/${profile.userName}`} key={profile.userName} className="profile-link">
               {profile.fullName}
             </Link>
           </h5>
