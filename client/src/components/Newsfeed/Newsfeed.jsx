@@ -32,7 +32,7 @@ const Newsfeed = ({ auth: { user }, getProfile, getAllProfiles, getAllPosts, pos
               {allPosts.length > 0 ? (
                 allPosts.map((post) => <PostContent key={post._id} post={post} />)
               ) : (
-                <h4 class="text-center grey-text">Nothing new...</h4>
+                <h4 class="text-center grey-text">Nothing new...Follow users to see new posts</h4>
               )}
             </div>
             <NewsfeedRightSideBar />
