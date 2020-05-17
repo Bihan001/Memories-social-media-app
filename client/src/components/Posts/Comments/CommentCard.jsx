@@ -3,15 +3,14 @@ import { MDBIcon } from 'mdbreact';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteComment } from '../../../actions/post';
+import { getProfile } from '../../../actions/auth';
 import PropTypes from 'prop-types';
 import Spinner from '../../layouts/spinner';
 
-const CommentCard = ({ auth: { user, profiles, loading }, post, comment, deleteComment }) => {
+const CommentCard = ({ auth: { user, profiles, loading }, post, comment, deleteComment, getProfile }) => {
   var fUser = null;
   const findUser = () => {
-    if (fUser === null) {
-      fUser = profiles && profiles.find((profile) => profile.userName === comment.user);
-    }
+    fUser = profiles && profiles.find((profile) => profile.userName === comment.user);
     return fUser;
   };
   return loading || !profiles ? (
@@ -28,7 +27,11 @@ const CommentCard = ({ auth: { user, profiles, loading }, post, comment, deleteC
         className="profile-photo-sm"
       />
       <p>
-        <Link to={`/profile/${findUser().userName}`} className="profile-link">
+        <Link
+          to={`/profile/${findUser().userName}`}
+          onClick={() => getProfile(findUser().userName)}
+          className="profile-link"
+        >
           {findUser().fullName}
         </Link>{' '}
         {comment.text}{' '}
@@ -53,4 +56,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { deleteComment })(CommentCard);
+export default connect(mapStateToProps, { deleteComment, getProfile })(CommentCard);
