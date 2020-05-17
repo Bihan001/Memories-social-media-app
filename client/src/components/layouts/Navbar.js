@@ -9,7 +9,6 @@ import {
   MDBNavbarToggler,
   MDBCollapse,
   MDBIcon,
-  MDBCardImage,
 } from 'mdbreact';
 import './css/Navbar.css';
 import { connect } from 'react-redux';
@@ -25,10 +24,15 @@ const Navbar = ({ logout, auth: { user } }) => {
   return (
     <>
       <div className="lol">
-        <MDBNavbar color="info-color" dark expand="md" style={{ marginTop: '0px' }}>
+        <MDBNavbar
+          color="info-color"
+          dark
+          expand="md"
+          style={{ marginTop: '0px', paddingTop: '3px', paddingBottom: '3px' }}
+        >
           <MDBNavbarBrand>
             <strong className="light-text">
-              <Link style={{ color: 'white' }} to="/">
+              <Link style={{ color: 'white' }} to="/newsfeed">
                 Memories
               </Link>
             </strong>
@@ -36,7 +40,7 @@ const Navbar = ({ logout, auth: { user } }) => {
           <MDBNavbarToggler onClick={toggleCollapse('navbarCollapse3')} />
           <MDBCollapse id="navbarCollapse3" isOpen={state.collapseID} navbar>
             <MDBNavbarNav right className="d-flex align-items-center">
-              <MDBNavItem className="mr-2">
+              {/* <MDBNavItem className="mr-2">
                 <MDBNavLink className="waves-effect waves-light" to={`/profile/${user && user.userName}`}>
                   <span className="d-flex flex-row align-items-center">
                     <MDBCardImage
@@ -53,8 +57,8 @@ const Navbar = ({ logout, auth: { user } }) => {
                     Profile
                   </span>
                 </MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem className="mr-2">
+              </MDBNavItem> */}
+              <MDBNavItem className="mr-2" style={{ fontSize: '15px' }}>
                 <MDBNavLink className="waves-effect waves-light" to="#!" onClick={logout}>
                   <MDBIcon icon="fas fa-door-closed" className="mr-1" />
                   Logout

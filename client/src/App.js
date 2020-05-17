@@ -17,7 +17,6 @@ import ProfileFollowing from './components/Profile/ProfileFollowing';
 import ProfileFollowers from './components/Profile/ProfileFollowers';
 import ProfileAbout from './components/Profile/ProfileAbout';
 import ProfileEdit from './components/Profile/ProfileEdit';
-import NotFound from './components/layouts/NotFound';
 
 if (localStorage.getItem('token')) {
   setAuthToken(localStorage.getItem('token'));
@@ -53,7 +52,6 @@ const App = () => {
             <PrivateRoute exact path="/followers/:userName" component={ProfileFollowers} />
             <PrivateRoute exact path="/profile/about/:userName" component={ProfileAbout} />
             <PrivateRoute exact path="/profile/edit/:userName" component={ProfileEdit} />
-            {/* <PrivateRoute component={NotFound} /> */}
           </Switch>
         </Fragment>
       </Router>
