@@ -10,7 +10,9 @@ import Spinner from '../../layouts/spinner';
 const CommentCard = ({ auth: { user, profiles, loading }, post, comment, deleteComment, getProfile }) => {
   var fUser = null;
   const findUser = () => {
-    fUser = profiles && profiles.find((profile) => profile.userName === comment.user);
+    if (!fUser) {
+      fUser = profiles && profiles.find((profile) => profile.userName === comment.user);
+    }
     return fUser;
   };
   return loading || !profiles ? (
@@ -19,7 +21,7 @@ const CommentCard = ({ auth: { user, profiles, loading }, post, comment, deleteC
     <div className="post-comment">
       <img
         src={
-          findUser().profilePicLink
+          findUser() && findUser().profilePicLink
             ? findUser().profilePicLink.url
             : 'https://www.linuxtrainingacademy.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
         }
@@ -29,10 +31,10 @@ const CommentCard = ({ auth: { user, profiles, loading }, post, comment, deleteC
       <p>
         <Link
           to={`/profile/${findUser().userName}`}
-          onClick={() => getProfile(findUser().userName)}
+          onClick={() => getProfile(findUser() && findUser().userName)}
           className="profile-link"
         >
-          {findUser().fullName}
+          {findUser() && findUser().fullName}
         </Link>{' '}
         {comment.text}{' '}
       </p>

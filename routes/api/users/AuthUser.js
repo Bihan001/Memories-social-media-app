@@ -70,10 +70,17 @@ router.post(
           id: user.id,
         },
       };
-      jwt.sign(payload, process.env.JWT_TOKEN, {}, (err, token) => {
-        if (err) throw err;
-        res.json({ token: token });
-      });
+      jwt.sign(
+        payload,
+        process.env.JWT_TOKEN,
+        {
+          expiresIn: '8760h',
+        },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token: token });
+        }
+      );
     } catch (err) {
       console.log(err);
       return res.status(403).json({ errors: [{ msg: err.message }] });

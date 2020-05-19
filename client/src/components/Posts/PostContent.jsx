@@ -11,7 +11,9 @@ import Spinner from '../layouts/spinner';
 const PostContent = ({ auth: { user, profiles, loading }, post, updateLikes, deletePost }) => {
   var fUser = null;
   const findUser = () => {
-    fUser = profiles && profiles.find((profile) => profile.userName === post.user);
+    if (!fUser) {
+      fUser = profiles && profiles.find((profile) => profile.userName === post.user);
+    }
     return fUser;
   };
   return loading || !profiles ? (
