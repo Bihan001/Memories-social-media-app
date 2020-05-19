@@ -53,7 +53,7 @@ const ProfileFollowers = ({ auth: { user, profiles, profile, loading }, getAllPr
                 </div>
                 <div className="col-md-2 static">
                   <div id="sticky-sidebar">
-                    <h4 className="grey-text">{profile && `${profile.firstName}'s Activity`}'s Activity`}</h4>
+                    <h4 className="grey-text">{profile && `${profile.firstName}'s Activity`}</h4>
                     <UserActivity />
                   </div>
                 </div>
