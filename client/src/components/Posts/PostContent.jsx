@@ -41,10 +41,10 @@ const PostContent = ({ auth: { user, profiles, loading }, post, updateLikes, del
             </h5>
             <p className="text-muted">{post.date.slice(0, 10)}</p>
           </div>
-          <div className="reaction pt-3 pb-4" style={{ fontSize: '17px' }}>
+          <div className="reaction pt-3 pb-4" style={{ fontSize: '21px' }}>
             <Link
               className="text-green mx-3"
-              style={{ color: post.likes.find((like) => like.user === user.userName) ? '#39b54a' : '#8dc63f' }}
+              style={{ color: post.likes.find((like) => like.user === user.userName) ? '#39b54a' : '#999999' }}
               onClick={() => updateLikes(post._id, post.user)}
             >
               <MDBIcon icon="thumbs-up" /> {post.likes.length}

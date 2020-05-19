@@ -41,6 +41,7 @@ const CommentCard = ({ auth: { user, profiles, loading }, post, comment, deleteC
       {comment.user === user.userName ? (
         <Link
           className="text-red ml-2 mt-1"
+          style={{ fontSize: '16px' }}
           onClick={() => deleteComment({ postid: post._id, commentid: comment._id }, post.user)}
         >
           <MDBIcon icon="trash-alt" />
