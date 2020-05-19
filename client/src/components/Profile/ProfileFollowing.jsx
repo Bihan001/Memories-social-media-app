@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { loadUser, getAllProfiles } from '../../actions/auth';
+import { getProfile, getAllProfiles } from '../../actions/auth';
 import PropTypes from 'prop-types';
 import Spinner from '../layouts/spinner';
 import Navbar from '../layouts/Navbar';
@@ -9,13 +9,26 @@ import PersonCard from '../PeopleNearby/PersonCard';
 import UserActivity from './UserActivity';
 import '../css/style1.css';
 
-const ProfileFollowing = ({ auth: { user, profiles }, getAllProfiles, match }) => {
+const ProfileFollowing = ({ auth: { user, profiles, loading, profile }, getAllProfiles, getProfile, match }) => {
   useEffect(() => {
-    loadUser();
+    getProfile(match.params.userName);
     getAllProfiles();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getAllProfiles]);
-  return !profiles ? (
+  }, [getProfile]);
+
+  var fUser = null;
+  const findUser = () => {
+    if (!fUser) {
+      fUser = profiles && profiles.find((prof) => prof.userName === match.params.userName);
+    }
+    return fUser;
+  };
+
+  return !profiles || loading ? (
+    <Spinner />
+  ) : !profile ? (
+    <Spinner />
+  ) : profile.userName !== match.params.userName ? (
     <Spinner />
   ) : (
     <Fragment>
@@ -29,9 +42,7 @@ const ProfileFollowing = ({ auth: { user, profiles }, getAllProfiles, match }) =
                 <div className="col-md-3"></div>
                 <div className="col-md-7">
                   <div className="people-nearby">
-                    {profiles &&
-                    profiles.length > 0 &&
-                    profiles.find((prof) => prof.userName === match.params.userName).following.length > 0 ? (
+                    {profiles && profiles.length > 0 && findUser().following.length > 0 ? (
                       profiles
                         .filter((prof) => prof.followers.find((prof1) => prof1.user === match.params.userName))
                         .map((profile) => <PersonCard key={profile.userName} profile={profile} />)
@@ -42,7 +53,7 @@ const ProfileFollowing = ({ auth: { user, profiles }, getAllProfiles, match }) =
                 </div>
                 <div className="col-md-2 static">
                   <div id="sticky-sidebar">
-                    <h4 className="grey-text">{user && `${user.firstName}'s Activity`}</h4>
+                    <h4 className="grey-text">{profile && `${profile.firstName}'s Activity`}</h4>
                     <UserActivity />
                   </div>
                 </div>
@@ -63,4 +74,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { loadUser, getAllProfiles })(ProfileFollowing);
+export default connect(mapStateToProps, { getProfile, getAllProfiles })(ProfileFollowing);

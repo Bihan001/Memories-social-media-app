@@ -1,6 +1,6 @@
 import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { loadUser, getAllProfiles } from '../../actions/auth';
+import { getAllProfiles } from '../../actions/auth';
 import PropTypes from 'prop-types';
 import Spinner from '../layouts/spinner';
 import Navbar from '../layouts/Navbar';
@@ -11,7 +11,6 @@ import '../css/style1.css';
 
 const PeopleNearby = ({ auth: { profiles }, getAllProfiles }) => {
   useEffect(() => {
-    loadUser();
     getAllProfiles();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -50,4 +49,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { loadUser, getAllProfiles })(PeopleNearby);
+export default connect(mapStateToProps, { getAllProfiles })(PeopleNearby);

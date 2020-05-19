@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { MDBIcon } from 'mdbreact';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import CommentCard from './Comments/CommentCard';
-import NewComment from './Comments/NewComment';
+import CommentCard from '../Comments/CommentCard';
+import NewComment from '../Comments/NewComment';
 import { updateLikes, deletePost } from '../../actions/post';
 import Spinner from '../layouts/spinner';
 

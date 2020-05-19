@@ -2,10 +2,10 @@ import React from 'react';
 import { MDBIcon } from 'mdbreact';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { deleteComment } from '../../../actions/post';
-import { getProfile } from '../../../actions/auth';
+import { deleteComment } from '../../actions/post';
+import { getProfile } from '../../actions/auth';
 import PropTypes from 'prop-types';
-import Spinner from '../../layouts/spinner';
+import Spinner from '../layouts/spinner';
 
 const CommentCard = ({ auth: { user, profiles, loading }, post, comment, deleteComment, getProfile }) => {
   var fUser = null;
@@ -30,8 +30,8 @@ const CommentCard = ({ auth: { user, profiles, loading }, post, comment, deleteC
       />
       <p>
         <Link
-          to={`/profile/${findUser().userName}`}
-          onClick={() => getProfile(findUser() && findUser().userName)}
+          to={`/profile/${findUser() && findUser().userName}`}
+          // onClick={() => getProfile(findUser() && findUser().userName)}
           className="profile-link"
         >
           {findUser() && findUser().fullName}

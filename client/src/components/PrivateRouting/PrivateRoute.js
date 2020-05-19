@@ -6,7 +6,15 @@ import { connect } from 'react-redux';
 const PrivateRoute = ({ component: Component, auth: { isAuthenticated, loading }, ...rest }) => (
   <Route
     {...rest}
-    render={(props) => (!isAuthenticated ? !loading ? <Redirect to="/" /> : null : <Component {...props} />)}
+    render={(props) =>
+      !isAuthenticated ? (
+        !loading ? (
+          <Redirect to="/" />
+        ) : null
+      ) : (
+        <Component {...props} key={props.match.params.userName || 'empty'} />
+      )
+    }
   />
 );
 PrivateRoute.propTypes = {

@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { MDBInput } from 'mdbreact';
 import { connect } from 'react-redux';
-import { loadUser, editUser } from '../../actions/auth';
+import { editUser } from '../../actions/auth';
 import { profilePicUpload } from '../../actions/fileUploads';
 import PropTypes from 'prop-types';
 import Spinner from '../layouts/spinner';
@@ -10,7 +10,7 @@ import ProfileCover from './ProfileCover';
 import UserActivity from './UserActivity';
 import '../css/style1.css';
 
-const ProfileEdit = ({ history, auth: { user, loading, profile }, editUser, profilePicUpload, match }) => {
+const ProfileEdit = ({ history, auth: { user, loading }, editUser, profilePicUpload, match }) => {
   const [file, setFile] = useState('');
   const [filename, setFilename] = useState('');
   const [formData, setFormData] = useState({
@@ -23,10 +23,6 @@ const ProfileEdit = ({ history, auth: { user, loading, profile }, editUser, prof
     address: '',
     country: '',
   });
-  useEffect(() => {
-    loadUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loadUser]);
   useEffect(() => {
     setFormData({
       firstName: loading || !user.firstName ? '' : user.firstName,
@@ -64,7 +60,7 @@ const ProfileEdit = ({ history, auth: { user, loading, profile }, editUser, prof
     editUser(formData, history, true);
   };
 
-  return loading && !profile && !user ? (
+  return loading || !user ? (
     <Spinner />
   ) : (
     <Fragment>
@@ -178,7 +174,6 @@ const ProfileEdit = ({ history, auth: { user, loading, profile }, editUser, prof
 
 ProfileEdit.propTypes = {
   auth: PropTypes.object.isRequired,
-  loadUser: PropTypes.func.isRequired,
   editUser: PropTypes.func.isRequired,
   profilePicUpload: PropTypes.func.isRequired,
 };
@@ -187,4 +182,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { loadUser, editUser, profilePicUpload })(ProfileEdit);
+export default connect(mapStateToProps, { editUser, profilePicUpload })(ProfileEdit);

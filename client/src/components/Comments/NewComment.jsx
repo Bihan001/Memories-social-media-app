@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MDBIcon } from 'mdbreact';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addComment } from '../../../actions/post';
+import { addComment } from '../../actions/post';
 import PropTypes from 'prop-types';
 
 const NewComment = ({ auth: { user }, addComment, post }) => {

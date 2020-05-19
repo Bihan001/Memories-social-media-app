@@ -5,6 +5,13 @@ import PropTypes from 'prop-types';
 import { updateFollow } from '../../actions/auth';
 
 const ProfileCover = ({ auth: { user, profile, profiles }, updateFollow, match }) => {
+  var fUser = null;
+  const findUser = () => {
+    if (!fUser) {
+      fUser = profiles && profiles.find((prof) => prof.userName === match.params.userName);
+    }
+    return fUser;
+  };
   return (
     <div className="timeline-cover">
       {/* <!--Timeline Menu for Large Screens--> */}
@@ -17,18 +24,11 @@ const ProfileCover = ({ auth: { user, profile, profiles }, updateFollow, match }
                   profile && profile.profilePicLink
                     ? profile.profilePicLink.url
                     : 'https://www.linuxtrainingacademy.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
-                  // : profiles.find((prof) => prof.userName === match.params.userName).profilePicLink
-                  // ? profiles.find((prof) => prof.userName === match.params.userName).profilePicLink.url
-                  // : 'https://www.linuxtrainingacademy.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
                 }
                 alt=""
                 className="img-responsive profile-photo"
               />
               <h3>{profile && profile.fullName}</h3>
-              {/* user && user.userName === match.params.userName ? user.userName : profile.fullName */}
-              {/* <h3>{profile && profile.userName === match.params.userName
-                  ? profile.fullName
-                  : profiles.find((prof) => prof.userName === match.params.userName).fullName}</h3> */}
             </div>
           </div>
           <div className="col-md-9">
@@ -59,10 +59,7 @@ const ProfileCover = ({ auth: { user, profile, profiles }, updateFollow, match }
               ) : null}
             </ul>
             <ul className="follow-me list-inline d-flex align-items-center">
-              <li style={{ paddingTop: '14px' }}>
-                {profiles ? profiles.find((prof) => prof.userName === match.params.userName).followers.length : ''}{' '}
-                people following him
-              </li>
+              <li style={{ paddingTop: '14px' }}>{findUser() && findUser().followers.length} people following him</li>
               {user.userName !== match.params.userName ? (
                 <li>
                   <button
@@ -71,9 +68,7 @@ const ProfileCover = ({ auth: { user, profile, profiles }, updateFollow, match }
                       updateFollow({ user_userName: user.userName, profile_userName: match.params.userName })
                     }
                   >
-                    {profiles
-                      .find((profile) => profile.userName === match.params.userName)
-                      .followers.find((prof) => prof.user === user.userName)
+                    {findUser() && findUser().followers.find((prof) => prof.user === user.userName)
                       ? 'Unfollow'
                       : 'Follow'}
                   </button>
@@ -134,9 +129,7 @@ const ProfileCover = ({ auth: { user, profile, profiles }, updateFollow, match }
                     updateFollow({ user_userName: user.userName, profile_userName: match.params.userName })
                   }
                 >
-                  {profiles
-                    .find((profile) => profile.userName === match.params.userName)
-                    .followers.find((prof) => prof.user === user.userName)
+                  {findUser() && findUser().followers.find((prof) => prof.user === user.userName)
                     ? 'Unfollow'
                     : 'Follow'}
                 </button>

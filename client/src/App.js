@@ -10,8 +10,7 @@ import { MDBContainer } from 'mdbreact';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
-import { loadUser, getAllProfiles } from './actions/auth';
-import { getAllPosts } from './actions/post';
+import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 import ProfileFollowing from './components/Profile/ProfileFollowing';
 import ProfileFollowers from './components/Profile/ProfileFollowers';
@@ -25,8 +24,6 @@ if (localStorage.getItem('token')) {
 const App = () => {
   useEffect(() => {
     store.dispatch(loadUser());
-    store.dispatch(getAllProfiles());
-    store.dispatch(getAllPosts());
   });
   return (
     <Provider store={store}>

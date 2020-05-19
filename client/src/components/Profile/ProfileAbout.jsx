@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { MDBIcon } from 'mdbreact';
 import { connect } from 'react-redux';
-import { loadUser } from '../../actions/auth';
+import { getProfile } from '../../actions/auth';
 import PropTypes from 'prop-types';
 import Spinner from '../layouts/spinner';
 import Navbar from '../layouts/Navbar';
@@ -9,12 +9,12 @@ import ProfileCover from './ProfileCover';
 import UserActivity from './UserActivity';
 import '../css/style1.css';
 
-const ProfileAbout = ({ auth: { user, loading, profile }, match }) => {
+const ProfileAbout = ({ auth: { loading, profile }, getProfile, match }) => {
   useEffect(() => {
-    loadUser();
+    getProfile(match.params.userName);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loadUser]);
-  return loading && !profile && !user ? (
+  }, [getProfile]);
+  return loading || !profile ? (
     <Spinner />
   ) : (
     <Fragment>
@@ -68,7 +68,7 @@ const ProfileAbout = ({ auth: { user, loading, profile }, match }) => {
                 </div>
                 <div className="col-md-2 static">
                   <div id="sticky-sidebar">
-                    <h4 className="grey-text">{user && `${user.firstName}'s Activity`}</h4>
+                    <h4 className="grey-text">{profile && `${profile.firstName}'s Activity`}</h4>
                     <UserActivity />
                   </div>
                 </div>
@@ -89,4 +89,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { loadUser })(ProfileAbout);
+export default connect(mapStateToProps, { getProfile })(ProfileAbout);

@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { loadUser, getProfile, getAllProfiles } from '../../actions/auth';
+import { getProfile, getAllProfiles } from '../../actions/auth';
 import { getUserPosts } from '../../actions/post';
 import PropTypes from 'prop-types';
 import Spinner from '../layouts/spinner';
@@ -13,7 +13,6 @@ import '../css/style1.css';
 
 const Profile = ({
   auth: { user, profile },
-  loadUser,
   getProfile,
   getAllProfiles,
   getUserPosts,
@@ -21,12 +20,11 @@ const Profile = ({
   match,
 }) => {
   useEffect(() => {
-    loadUser();
     getProfile(match.params.userName);
-    getAllProfiles();
+    getAllProfiles(); //Required for Profile Cover
     getUserPosts(match.params.userName);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getProfile]);
+  }, []);
   return !profile || loading ? (
     <Spinner />
   ) : profile.userName !== match.params.userName ? (
@@ -46,8 +44,10 @@ const Profile = ({
                   style={user.userName === match.params.userName ? null : { marginTop: '70px' }}
                 >
                   {profile && user.userName === profile.userName ? <PostCreateBox /> : null}
-                  {userPosts.length > 0 ? (
+                  {userPosts && userPosts.length > 0 && userPosts[0].user === match.params.userName ? (
                     userPosts.map((post) => <ProfilePostContent key={post._id} post={post} />)
+                  ) : userPosts && userPosts.length > 0 ? (
+                    <Spinner />
                   ) : profile ? (
                     user.userName === profile.userName ? (
                       <h4 className="text-center grey-text">You haven't posted anything yet...</h4>
@@ -60,7 +60,7 @@ const Profile = ({
                 </div>
                 <div className="col-md-2 static">
                   <div id="sticky-sidebar">
-                    <h4 className="grey-text">{`${user.firstName}'s Activity`}</h4>
+                    <h4 className="grey-text">{profile && `${profile.firstName}'s Activity`}</h4>
                     <UserActivity />
                   </div>
                 </div>
@@ -83,4 +83,4 @@ const mapStateToProps = (state) => ({
   postState: state.post,
 });
 
-export default connect(mapStateToProps, { loadUser, getProfile, getAllProfiles, getUserPosts })(Profile);
+export default connect(mapStateToProps, { getProfile, getAllProfiles, getUserPosts })(Profile);

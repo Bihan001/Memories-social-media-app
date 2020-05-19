@@ -54,24 +54,6 @@ const Newsfeed_Left = ({ auth: { user } }) => {
                 <Link to={`/followers/${user && user.userName}`}>Followers</Link>
               </div>
             </li>
-            {/* <li>
-              <MDBIcon far icon="envelope" />
-              <div>
-                <Link to="/messages">Messages</Link>
-              </div>
-            </li>
-            <li>
-              <MDBIcon far icon="images" />
-              <div>
-                <Link to="/images">Images</Link>
-              </div>
-            </li>
-            <li>
-              <MDBIcon icon="photo-video" />
-              <div>
-                <Link to="/videos">Videos</Link>
-              </div>
-            </li> */}
           </ul>
         </div>
       </div>
