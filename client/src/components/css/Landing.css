@@ -1,3 +1,15 @@
+.merged.row {
+  margin: 0;
+}
+
+.merged.row > div {
+  padding: 0;
+}
+
+.pdng0 {
+  padding: 0;
+}
+
 .log-reg-area > h2 {
   font-weight: bold;
   text-transform: capitalize;
@@ -70,7 +82,7 @@
   height: 15px;
 }
 
-.log-reg-area form .checkbox input[type='checkbox']:focus {
+.log-reg-area form .checkbox input[type="checkbox"]:focus {
   outline: none !important;
 }
 
@@ -111,18 +123,6 @@
   display: inline-block;
   width: 100%;
 }
-
-/* .log-reg-area.reg {
-  display: none;
-}
-
-.login-reg-bg.show .log-reg-area.reg {
-  display: block;
-}
-
-.login-reg-bg.show .log-reg-area.sign {
-  display: none;
-} */
 
 .form-group .md-form .validate {
   margin-bottom: 0;
@@ -167,7 +167,7 @@
   word-wrap: normal;
 }
 
-input[type='file' i] {
+input[type="file" i] {
   -webkit-appearance: initial;
   background-color: inherit;
   cursor: default;
@@ -184,7 +184,7 @@ input[type='file' i] {
   border: 2px solid #32be8f !important;
 }
 
-.signup3 .file-field input[type='file'] {
+.signup3 .file-field input[type="file"] {
   position: absolute;
   top: 0;
   right: 0;
@@ -205,19 +205,19 @@ input[type='file' i] {
 }
 
 .md-form input:not([type]),
-.md-form input[type='text']:not(.browser-default),
-.md-form input[type='password']:not(.browser-default),
-.md-form input[type='email']:not(.browser-default),
-.md-form input[type='url']:not(.browser-default),
-.md-form input[type='time']:not(.browser-default),
-.md-form input[type='date']:not(.browser-default),
-.md-form input[type='datetime']:not(.browser-default),
-.md-form input[type='datetime-local']:not(.browser-default),
-.md-form input[type='tel']:not(.browser-default),
-.md-form input[type='number']:not(.browser-default),
-.md-form input[type='search']:not(.browser-default),
-.md-form input[type='phone']:not(.browser-default),
-.md-form input[type='search-md'],
+.md-form input[type="text"]:not(.browser-default),
+.md-form input[type="password"]:not(.browser-default),
+.md-form input[type="email"]:not(.browser-default),
+.md-form input[type="url"]:not(.browser-default),
+.md-form input[type="time"]:not(.browser-default),
+.md-form input[type="date"]:not(.browser-default),
+.md-form input[type="datetime"]:not(.browser-default),
+.md-form input[type="datetime-local"]:not(.browser-default),
+.md-form input[type="tel"]:not(.browser-default),
+.md-form input[type="number"]:not(.browser-default),
+.md-form input[type="search"]:not(.browser-default),
+.md-form input[type="phone"]:not(.browser-default),
+.md-form input[type="search-md"],
 .md-form textarea.md-textarea {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
@@ -228,10 +228,13 @@ input[type='file' i] {
   outline: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
-  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -webkit-transition: border-color 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
 }
 
 .signup3 .file-field input.file-path {
@@ -249,125 +252,3 @@ input[type='file' i] {
     height: 220px;
   }
 }
-
-/*--- topbar ---*/
-
-/* .topbar {
-  background: #fff;
-  display: block;
-  height: 60px;
-  padding: 0 48px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  z-index: 99;
-  position: relative;
-}
-
-.logo {
-  display: inline-block;
-  vertical-align: inherit;
-  width: 15%;
-  position: relative;
-  z-index: 10;
-}
-
-.topbar > form {
-  display: inline-block;
-  vertical-align: sub;
-  width: 26%;
-  position: relative;
-}
-
-.top-area {
-  display: inline-block;
-  text-align: right;
-  vertical-align: middle;
-  width: 84%;
-}
-
-.top-area > ul {
-  display: inline-block;
-  list-style: outside none none;
-  margin-bottom: 0;
-  padding-left: 0;
-  vertical-align: middle;
-}
-
-.top-area > ul > li {
-  display: inline-block;
-  margin-right: 25px;
-  position: relative;
-  vertical-align: top;
-  z-index: 2;
-}
-
-.top-area > ul > li > a {
-  color: #999;
-}
-
-.top-area .user-img {
-  cursor: pointer;
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  line-height: 60px;
-}
-
-.top-area .user-img > span.status {
-  bottom: 10px;
-  right: 5px;
-}
-
-.top-area > span.main-menu {
-  cursor: pointer;
-  display: inline-block;
-  font-size: 20px;
-  margin-left: 20px;
-  margin-right: -10px;
-  vertical-align: inherit;
-}
-
-.top-area .user-img > img {
-  border-radius: 50%;
-  display: inline-block;
-  transform: scale(0.7);
-  vertical-align: inherit;
-}
-
-.form-search {
-  position: absolute;
-  right: -15px;
-  top: 42px;
-  width: 300px;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.searched.active .form-search {
-  opacity: 1;
-  visibility: visible;
-}
-
-.form-search input {
-  border-style: none none solid;
-  border-width: medium medium 1px;
-  color: #999999;
-  font-size: 15px;
-  padding: 9px 18px;
-  width: 100%;
-}
-
-.form-search button {
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-  border: medium none;
-  color: #999;
-  position: absolute;
-  right: 5px;
-  top: 9px;
-}
-
-.top-area > ul > li > a > span {
-  bottom: -10px;
-  font-size: 11px;
-  position: absolute;
-  right: -4px;
-} */

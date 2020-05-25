@@ -1,14 +1,20 @@
-/* html,
-body {
-  background: url(./components/layouts/img/bg1.jpg) no-repeat;
-  background-size: cover;
-} */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
 
-/* #page-contents,
-#page-contents-fluid {
-  background: url(./components/layouts/img/bg1.jpg) no-repeat;
-  background-size: cover;
-} */
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #6d6e71;
+  font-size: 12px;
+}
 
 .md-form .prefix.active {
   color: #32be8fa6;
