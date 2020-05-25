@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import UserImg from '../../images/userimg.png';
+
 const Newsfeed_Left = ({ auth: { user } }) => {
   return (
     <Fragment>
@@ -14,7 +16,7 @@ const Newsfeed_Left = ({ auth: { user } }) => {
               src={
                 user && user.profilePicLink
                   ? user.profilePicLink.url
-                  : 'https://www.linuxtrainingacademy.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+                  : UserImg
               }
               alt="user"
               className="profile-photo"

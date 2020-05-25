@@ -7,7 +7,6 @@ import Navbar from '../layouts/Navbar';
 import ProfileCover from './ProfileCover';
 import PersonCard from '../PeopleNearby/PersonCard';
 import UserActivity from './UserActivity';
-import '../css/style1.css';
 
 const ProfileFollowers = ({ auth: { user, profiles, profile, loading }, getAllProfiles, getProfile, match }) => {
   useEffect(() => {

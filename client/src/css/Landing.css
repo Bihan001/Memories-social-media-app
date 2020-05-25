@@ -35,20 +35,20 @@
 }
 
 .land-meta > h1 {
-  font-size: 75px;
+  font-size: 4.6875rem;
   color: rgb(255, 255, 255);
 }
 
 .land-meta > p {
   color: #fff;
-  letter-spacing: 0.5px;
-  font-size: 20px;
+  letter-spacing: 0.0313rem;
+  font-size: 1.25rem;
   overflow-y: hidden;
 }
 
 .log-reg-area > p {
   color: #878787;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .login-reg-bg {
   background: #f4f7f6 none repeat scroll 0 0;
@@ -60,15 +60,15 @@
 
 .log-reg-area {
   background: #fff none repeat scroll 0 0;
-  box-shadow: 0 0 35px #e2e2e2;
+  box-shadow: 0 0 2.1875rem #e2e2e2;
   display: block;
   float: none;
   left: 50%;
-  padding: 35px 55px;
+  padding: 2.1875rem 3.4375rem;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 505px;
+  width: 31.5625rem;
 }
 
 .log-reg-area form .checkbox {
@@ -77,9 +77,9 @@
 }
 
 .log-reg-area form .checkbox input {
-  margin-top: 3px;
-  width: 15px;
-  height: 15px;
+  margin-top: 0.1875rem;
+  width: 0.9375rem;
+  height: 0.9375rem;
 }
 
 .log-reg-area form .checkbox input[type="checkbox"]:focus {
@@ -89,7 +89,7 @@
 .log-reg-area form .forgot-pwd,
 .log-reg-area form .already-have {
   display: inline-block;
-  font-size: 14px;
+  font-size: 0.875rem;
   text-align: left;
   width: fit-content;
 }
@@ -102,12 +102,12 @@
 .log-reg-area .checkbox label,
 .form-radio label {
   color: #999;
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 
 .submit-btns {
   display: inline-block;
-  margin-top: 7px;
+  margin-top: 0.4375rem;
   width: 100%;
 }
 
@@ -118,8 +118,8 @@
 }
 
 .form-group {
-  margin-bottom: 15px;
-  margin-top: 15px;
+  margin-bottom: 0.9375rem;
+  margin-top: 0.9375rem;
   display: inline-block;
   width: 100%;
 }
@@ -138,20 +138,20 @@
 }
 
 #signupNames .col-6 input {
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 65.625rem) {
   .log-reg-area {
     width: 80%;
   }
 }
 
 .log-reg-area.reg img {
-  width: 300px;
-  height: 300px;
+  width: 18.75rem;
+  height: 18.75rem;
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   object-fit: cover;
 }
 
@@ -181,7 +181,7 @@ input[type="file" i] {
 .file-field .btn-outline-success {
   color: #32be8f !important;
   background-color: transparent !important;
-  border: 2px solid #32be8f !important;
+  border: 0.125rem solid #32be8f !important;
 }
 
 .signup3 .file-field input[type="file"] {
@@ -200,7 +200,7 @@ input[type="file" i] {
 
 .signup3 .file-field .file-path-wrapper {
   height: 2.5rem;
-  padding-left: 10px;
+  padding-left: 0.625rem;
   overflow: hidden;
 }
 
@@ -223,7 +223,7 @@ input[type="file" i] {
   box-sizing: content-box;
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid #ced4da;
+  border-bottom: 0.0625rem solid #ced4da;
   border-radius: 0;
   outline: 0;
   -webkit-box-shadow: none;
@@ -239,16 +239,16 @@ input[type="file" i] {
 
 .signup3 .file-field input.file-path {
   width: fit-content;
-  height: 36px;
+  height: 2.25rem;
 }
 
-@media (max-width: 580px) {
+@media (max-width: 36.25rem) {
   .log-reg-area.reg form .form-group {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 0.3125rem;
+    margin-bottom: 0.3125rem;
   }
   .log-reg-area.reg img {
-    width: 220px;
-    height: 220px;
+    width: 13.75rem;
+    height: 13.75rem;
   }
 }

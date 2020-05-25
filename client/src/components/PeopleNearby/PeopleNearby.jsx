@@ -7,7 +7,6 @@ import Navbar from '../layouts/Navbar';
 import NewsfeedLeft from '../Newsfeed/Newsfeed_Left';
 import NewsfeedRightSideBar from '../Newsfeed/NewsfeedRightSideBar';
 import PersonCard from './PersonCard';
-import '../css/style1.css';
 
 const PeopleNearby = ({ auth: { profiles }, getAllProfiles }) => {
   useEffect(() => {

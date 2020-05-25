@@ -1,8 +1,10 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { updateFollow } from '../../actions/auth';
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { updateFollow } from "../../actions/auth";
+
+import UserImg from "../../images/userimg.png";
 
 const PersonCard = ({ profile, auth: { user }, updateFollow }) => {
   return (
@@ -10,11 +12,7 @@ const PersonCard = ({ profile, auth: { user }, updateFollow }) => {
       <div className="row">
         <div className="col-md-2 col-sm-2">
           <img
-            src={
-              profile.profilePicLink
-                ? profile.profilePicLink.url
-                : 'https://www.linuxtrainingacademy.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
-            }
+            src={profile.profilePicLink ? profile.profilePicLink.url : UserImg}
             alt="user"
             className="profile-photo-lg"
           />
@@ -26,7 +24,9 @@ const PersonCard = ({ profile, auth: { user }, updateFollow }) => {
             </Link>
           </h5>
           <p>{profile.bio}</p>
-          <p className="text-muted">{profile.country !== '' ? `Country: ${profile.country}` : ''}</p>
+          <p className="text-muted">
+            {profile.country !== "" ? `Country: ${profile.country}` : ""}
+          </p>
         </div>
         {user.userName === profile.userName ? null : (
           <Fragment>
@@ -34,9 +34,16 @@ const PersonCard = ({ profile, auth: { user }, updateFollow }) => {
               <button
                 id="followButton"
                 className="btn btn-primary"
-                onClick={() => updateFollow({ user_userName: user.userName, profile_userName: profile.userName })}
+                onClick={() =>
+                  updateFollow({
+                    user_userName: user.userName,
+                    profile_userName: profile.userName,
+                  })
+                }
               >
-                {profile.followers.find((prof) => prof.user === user.userName) ? 'Unfollow' : 'Follow'}
+                {profile.followers.find((prof) => prof.user === user.userName)
+                  ? "Unfollow"
+                  : "Follow"}
               </button>
             </div>
           </Fragment>

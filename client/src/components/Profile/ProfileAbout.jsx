@@ -7,7 +7,6 @@ import Spinner from '../layouts/spinner';
 import Navbar from '../layouts/Navbar';
 import ProfileCover from './ProfileCover';
 import UserActivity from './UserActivity';
-import '../css/style1.css';
 
 const ProfileAbout = ({ auth: { loading, profile }, getProfile, match }) => {
   useEffect(() => {

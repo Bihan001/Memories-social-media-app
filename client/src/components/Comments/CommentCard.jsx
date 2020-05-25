@@ -7,6 +7,9 @@ import { getProfile } from '../../actions/auth';
 import PropTypes from 'prop-types';
 import Spinner from '../layouts/spinner';
 
+import UserImg from "../../images/userimg.png";
+
+
 const CommentCard = ({ auth: { user, profiles, loading }, post, comment, deleteComment, getProfile }) => {
   var fUser = null;
   const findUser = () => {
@@ -23,7 +26,7 @@ const CommentCard = ({ auth: { user, profiles, loading }, post, comment, deleteC
         src={
           findUser() && findUser().profilePicLink
             ? findUser().profilePicLink.url
-            : 'https://www.linuxtrainingacademy.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+            : UserImg
         }
         alt=""
         className="profile-photo-sm"
@@ -31,7 +34,6 @@ const CommentCard = ({ auth: { user, profiles, loading }, post, comment, deleteC
       <p>
         <Link
           to={`/profile/${findUser() && findUser().userName}`}
-          // onClick={() => getProfile(findUser() && findUser().userName)}
           className="profile-link"
         >
           {findUser() && findUser().fullName}

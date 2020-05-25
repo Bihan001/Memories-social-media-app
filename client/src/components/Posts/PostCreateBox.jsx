@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createPost } from '../../actions/post';
 
+import UserImg from "../../images/userimg.png";
+
+
 const PostCreateBox = ({
   auth: { user, isAuthenticated },
   fileUploads: {
@@ -39,7 +42,7 @@ const PostCreateBox = ({
                 src={
                   user && user.profilePicLink
                     ? user.profilePicLink.url
-                    : 'https://www.linuxtrainingacademy.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+                    : UserImg
                 }
                 alt=""
                 className="profile-photo-md"

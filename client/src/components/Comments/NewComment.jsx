@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { addComment } from '../../actions/post';
 import PropTypes from 'prop-types';
 
+import UserImg from "../../images/userimg.png";
+
+
 const NewComment = ({ auth: { user }, addComment, post }) => {
   const [text, setText] = useState('');
   const onChange = (e) => {
@@ -20,7 +23,7 @@ const NewComment = ({ auth: { user }, addComment, post }) => {
         src={
           user && user.profilePicLink
             ? user.profilePicLink.url
-            : 'https://www.linuxtrainingacademy.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+            : UserImg
         }
         alt=""
         className="profile-photo-sm"

@@ -1,21 +1,32 @@
+//React
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Newsfeed from './components/Newsfeed/Newsfeed';
-import Landing from './components/Landing/Landing';
-import Profile from './components/Profile/Profile';
-import PeopleNearby from './components/PeopleNearby/PeopleNearby';
-import PrivateRoute from './components/PrivateRouting/PrivateRoute';
-import Alert from './components/layouts/Alert';
+
+//Material UI
 import { MDBContainer } from 'mdbreact';
+
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
-import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
+
+//Actions
+import { loadUser } from './actions/auth';
+
+//Routes
+import PrivateRoute from './components/PrivateRouting/PrivateRoute';
+
+//Components
+import Alert from './components/layouts/Alert';
+import Newsfeed from './components/Newsfeed/Newsfeed';
+import Landing from './components/Landing/Landing';
+import Profile from './components/Profile/Profile';
 import ProfileFollowing from './components/Profile/ProfileFollowing';
 import ProfileFollowers from './components/Profile/ProfileFollowers';
 import ProfileAbout from './components/Profile/ProfileAbout';
 import ProfileEdit from './components/Profile/ProfileEdit';
+import PeopleNearby from './components/PeopleNearby/PeopleNearby';
+
 
 if (localStorage.getItem('token')) {
   setAuthToken(localStorage.getItem('token'));

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import UserImg from '../../images/userimg.png';
+
 const NewsfeedRightSideBar = ({ auth: { user, profiles } }) => {
   return (
     <div className="col-md-2 static">
@@ -17,7 +19,7 @@ const NewsfeedRightSideBar = ({ auth: { user, profiles } }) => {
                   src={
                     profile.profilePicLink
                       ? profile.profilePicLink.url
-                      : 'https://www.linuxtrainingacademy.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+                      : UserImg
                   }
                   alt=""
                   className="profile-photo-sm pull-left"

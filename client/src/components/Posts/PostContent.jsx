@@ -8,6 +8,8 @@ import NewComment from '../Comments/NewComment';
 import { updateLikes, deletePost } from '../../actions/post';
 import Spinner from '../layouts/spinner';
 
+import UserImg from "../../images/userimg.png";
+
 const PostContent = ({ auth: { user, profiles, loading }, post, updateLikes, deletePost }) => {
   var fUser = null;
   const findUser = () => {
@@ -26,7 +28,7 @@ const PostContent = ({ auth: { user, profiles, loading }, post, updateLikes, del
           src={
             findUser() && findUser().profilePicLink
               ? findUser().profilePicLink.url
-              : 'https://www.linuxtrainingacademy.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+              : UserImg
           }
           alt=""
           className="profile-photo-md pull-left"

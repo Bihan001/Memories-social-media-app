@@ -10,10 +10,11 @@ import {
   MDBCollapse,
   MDBIcon,
 } from 'mdbreact';
-import './css/Navbar.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
+
+import '../../css/Navbar.css';
 
 const Navbar = ({ logout, auth: { user } }) => {
   const [state, setState] = useState({ collapseID: '' });
@@ -25,7 +26,7 @@ const Navbar = ({ logout, auth: { user } }) => {
     <>
       <div className="lol">
         <MDBNavbar
-          color="info-color"
+          className="info-color"
           dark
           expand="md"
           style={{ marginTop: '0px', paddingTop: '3px', paddingBottom: '3px' }}

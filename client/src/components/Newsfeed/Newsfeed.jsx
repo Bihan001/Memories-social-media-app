@@ -9,7 +9,6 @@ import PostContent from '../Posts/PostContent';
 import NewsfeedRightSideBar from './NewsfeedRightSideBar';
 import { getProfile, getAllProfiles } from '../../actions/auth';
 import { getAllPosts } from '../../actions/post';
-import '../css/style1.css';
 
 const Newsfeed = ({ auth: { user }, getProfile, getAllProfiles, getAllPosts, postState: { allPosts, loading } }) => {
   useEffect(() => {

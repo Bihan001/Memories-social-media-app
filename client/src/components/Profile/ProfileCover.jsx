@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { updateFollow } from '../../actions/auth';
 
+import UserImg from '../../images/userimg.png';
+
 const ProfileCover = ({ auth: { user, profile, profiles }, updateFollow, match }) => {
   var fUser = null;
   const findUser = () => {
@@ -23,7 +25,7 @@ const ProfileCover = ({ auth: { user, profile, profiles }, updateFollow, match }
                 src={
                   profile && profile.profilePicLink
                     ? profile.profilePicLink.url
-                    : 'https://www.linuxtrainingacademy.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+                    : UserImg
                 }
                 alt=""
                 className="img-responsive profile-photo"
@@ -86,7 +88,7 @@ const ProfileCover = ({ auth: { user, profile, profiles }, updateFollow, match }
             src={
               profile && profile.profilePicLink
                 ? profile.profilePicLink.url
-                : 'https://www.linuxtrainingacademy.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+                : UserImg
             }
             alt=""
             className="img-responsive profile-photo"

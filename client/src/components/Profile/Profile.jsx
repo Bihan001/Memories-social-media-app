@@ -9,7 +9,6 @@ import ProfileCover from './ProfileCover';
 import PostCreateBox from '../Posts/PostCreateBox';
 import ProfilePostContent from '../Posts/ProfilePostContent';
 import UserActivity from './UserActivity';
-import '../css/style1.css';
 
 const Profile = ({
   auth: { user, profile },

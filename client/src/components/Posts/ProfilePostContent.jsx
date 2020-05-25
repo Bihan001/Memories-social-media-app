@@ -7,6 +7,9 @@ import PropTypes from 'prop-types';
 import CommentCard from '../Comments/CommentCard';
 import NewComment from '../Comments/NewComment';
 
+import UserImg from "../../images/userimg.png";
+
+
 const ProfilePostContent = ({ auth: { user, profile }, post, updateLikes, deletePost }) => {
   return (
     <div className="post-content">
@@ -22,7 +25,7 @@ const ProfilePostContent = ({ auth: { user, profile }, post, updateLikes, delete
           src={
             profile && profile.profilePicLink
               ? profile.profilePicLink.url
-              : 'https://www.linuxtrainingacademy.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+              : UserImg
           }
           alt=""
           className="profile-photo-md pull-left"
