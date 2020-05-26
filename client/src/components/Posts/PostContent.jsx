@@ -1,20 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { MDBIcon } from 'mdbreact';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import CommentCard from '../Comments/CommentCard';
-import NewComment from '../Comments/NewComment';
-import { updateLikes, deletePost } from '../../actions/post';
-import Spinner from '../layouts/spinner';
+import React from "react";
+import { Link } from "react-router-dom";
+import { MDBIcon } from "mdbreact";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import CommentCard from "../Comments/CommentCard";
+import NewComment from "../Comments/NewComment";
+import { updateLikes, deletePost } from "../../actions/post";
+import Spinner from "../layouts/spinner";
 
 import UserImg from "../../images/userimg.png";
 
-const PostContent = ({ auth: { user, profiles, loading }, post, updateLikes, deletePost }) => {
+const PostContent = ({
+  auth: { user, profiles, loading },
+  post,
+  updateLikes,
+  deletePost,
+}) => {
   var fUser = null;
   const findUser = () => {
     if (!fUser) {
-      fUser = profiles && profiles.find((profile) => profile.userName === post.user);
+      fUser =
+        profiles && profiles.find((profile) => profile.userName === post.user);
     }
     return fUser;
   };
@@ -22,7 +28,13 @@ const PostContent = ({ auth: { user, profiles, loading }, post, updateLikes, del
     <Spinner />
   ) : (
     <div className="post-content">
-      {post.postMedia ? <img src={post.postMedia.url} alt="" className="img-responsive post-image" /> : null}
+      {post.postMedia ? (
+        <img
+          src={post.postMedia.url}
+          alt=""
+          className="img-responsive post-image"
+        />
+      ) : null}
       <div className="post-container d-flex">
         <img
           src={
@@ -38,32 +50,43 @@ const PostContent = ({ auth: { user, profiles, loading }, post, updateLikes, del
             <h5>
               <Link to={`/profile/${post.user}`} className="profile-link">
                 {findUser() && findUser().fullName}
-              </Link>{' '}
+              </Link>{" "}
               <span className="following">following</span>
             </h5>
-            <p className="text-muted">{post.date.slice(0, 10)}</p>
+            <p>{post.date.slice(0, 10)}</p>
           </div>
-          <div className="reaction pt-3 pb-4" style={{ fontSize: '21px' }}>
+          <div className="reaction pt-3 pb-4" style={{ fontSize: "21px" }}>
             <Link
               className="text-green mx-3"
-              style={{ color: post.likes.find((like) => like.user === user.userName) ? '#39b54a' : '#999999' }}
+              style={{
+                color: post.likes.find((like) => like.user === user.userName)
+                  ? "#39b54a"
+                  : "#999999",
+              }}
               onClick={() => updateLikes(post._id, post.user)}
             >
               <MDBIcon icon="thumbs-up" /> {post.likes.length}
             </Link>
             {post && user && post.user === user.userName ? (
-              <Link className="text-red mx-3" onClick={() => deletePost(post._id, user.userName)}>
+              <Link
+                className="text-red mx-3"
+                onClick={() => deletePost(post._id, user.userName)}
+              >
                 <MDBIcon icon="trash-alt" />
               </Link>
             ) : null}
           </div>
           <div className="line-divider"></div>
           <div className="post-text">
-            <p style={{ fontSize: '16px' }}>{post.postText ? post.postText : ''}</p>
+            <p style={{ fontSize: "16px" }}>
+              {post.postText ? post.postText : ""}
+            </p>
           </div>
           <div className="line-divider"></div>
           {post.comments.length > 0
-            ? post.comments.map((comment) => <CommentCard key={comment._id} post={post} comment={comment} />)
+            ? post.comments.map((comment) => (
+                <CommentCard key={comment._id} post={post} comment={comment} />
+              ))
             : null}
           <NewComment post={post} />
         </div>
@@ -80,4 +103,6 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { updateLikes, deletePost })(PostContent);
+export default connect(mapStateToProps, { updateLikes, deletePost })(
+  PostContent
+);

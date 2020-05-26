@@ -1,0 +1,24 @@
+.profile-card {
+  background: linear-gradient(to bottom, $color-primary, $color-secondary),
+    url(https://img.freepik.com/free-vector/abstract-geometric-lines-seamless-pattern_144290-8.jpg?size=626&ext=jpg)
+      no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 5.625rem;
+  border-radius: 0.25rem;
+  padding: 0.625rem 1.25rem;
+  color: $white-primary;
+  margin-bottom: 2.5rem;
+}
+
+.profile-card img.profile-photo {
+  border: 0.25rem solid $white-primary;
+  float: left;
+  margin-right: 1.25rem;
+  position: relative;
+  top: -1.875rem;
+  height: 4.375rem;
+  width: 4.375rem;
+  border-radius: 50%;
+  object-fit: cover;
+}

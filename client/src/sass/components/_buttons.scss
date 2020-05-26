@@ -1,0 +1,30 @@
+@import "../abstract/variables/variables";
+
+.btn-primary {
+  background: $color-primary !important;
+  padding: 0.3125rem 1.25rem;
+  border: none;
+  font-size: 0.875rem;
+  border-radius: 3.125rem;
+  color: $white-primary;
+  position: relative;
+  font-weight: 600;
+  outline: none;
+
+  &:hover {
+    background: $color-secondary !important;
+    transition: all 1s;
+  }
+
+  &::before {
+    content: "";
+    background: rgba($black-primary, 0.2) !important;
+    position: absolute;
+    width: 95%;
+    height: 0.0625rem;
+    top: 0.0625rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}

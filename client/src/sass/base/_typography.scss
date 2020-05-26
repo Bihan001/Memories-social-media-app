@@ -1,0 +1,65 @@
+@import "../abstract/variables/variables";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-primary;
+}
+
+.text-red {
+  color: $red1;
+
+  &:hover {
+    color: $red2;
+  }
+}
+
+.profile-link {
+  font-weight: 600;
+}
+
+span.imgBtn {
+  color: $color-primary;
+
+  &:hover {
+    color: $color-secondary;
+  }
+}
+
+a {
+  color: $color-primary;
+
+  &:hover {
+    color: $color-secondary;
+  }
+
+  &,
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+//For 'following' word in post boxes
+.following {
+  color: $green1;
+  font-size: 0.75rem;
+  margin-left: 1.25rem;
+}
+
+// section h1.section-title {
+//   font-family: "Agency FB", sans-serif;
+//   font-size: 13.4375rem;
+//   color: $white1;
+//   margin-bottom: -3.4375rem;
+// }
+
+// section h2.sub-title {
+//   font-family: "Agency FB", sans-serif;
+//   color: $white1;
+//   font-size: 3.125rem;
+//   margin: 2.5rem 0;
+// }

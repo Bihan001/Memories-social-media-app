@@ -1,0 +1,36 @@
+.timeline .post-content {
+  position: relative;
+  overflow: visible;
+}
+
+.timeline .post-content::before {
+  content: "";
+  position: absolute;
+  background: none;
+  width: 0.0625rem;
+  height: 99%;
+  left: -9.0625rem;
+  border-left: 0.125rem solid $green1;
+  top: 0.9375rem;
+}
+
+.timeline .post-content .post-date {
+  position: absolute;
+  margin-left: -7.8125rem;
+}
+
+.timeline .post-content .post-date::before {
+  content: "";
+  background: $green1;
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.625rem;
+  left: -1.875rem;
+  top: 0.625rem;
+  border: 0.125rem solid $white-primary;
+}
+
+.timeline .post-content img.post-image {
+  border-radius: 0.25rem 0.25rem 0 0;
+}

@@ -1,0 +1,18 @@
+ul.album-photos {
+  padding: 0;
+  margin: 0 auto 1.25rem;
+  display: block;
+  font-size: 0;
+  text-align: center;
+}
+
+ul.album-photos li {
+  list-style: none;
+  display: inline-block;
+  max-width: 12.1875rem;
+  padding: 0.125rem;
+}
+
+ul.album-photos li img {
+  max-width: 100%;
+}

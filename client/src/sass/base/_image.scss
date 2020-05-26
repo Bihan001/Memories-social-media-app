@@ -1,0 +1,57 @@
+section img {
+  margin: auto;
+}
+
+img.profile-photo {
+  height: 3.625rem;
+  width: 3.625rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+img.profile-photo-lg {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+img.profile-photo-md {
+  height: 3.125rem;
+  width: 3.125rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+img.profile-photo-sm {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+img.profile-photo-xs {
+  height: 1.875rem;
+  width: 1.875rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.img-wrapper {
+  position: relative;
+}
+
+.img-wrapper::after {
+  content: "";
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 1s ease 0s;
+}
+
+.img-wrapper:hover:after {
+  background-color: rgba($black-primary, 0.4);
+}

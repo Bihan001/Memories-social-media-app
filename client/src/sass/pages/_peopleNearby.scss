@@ -1,0 +1,20 @@
+.people-nearby .google-maps {
+  background: $white4;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid $white3;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.people-nearby .google-maps .map {
+  height: 18.75rem;
+  width: 100%;
+  border: none;
+}
+
+.people-nearby .nearby-user {
+  padding: 1.25rem 0;
+  border-top: 0.0625rem solid $white3;
+  border-bottom: 0.0625rem solid $white3;
+  margin-bottom: 1.25rem;
+}

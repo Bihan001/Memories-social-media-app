@@ -1,0 +1,140 @@
+.timeline-cover {
+  background: url("https://i.pinimg.com/originals/b8/0e/59/b80e591c55f95002e9766e88dfff8aeb.jpg")
+    no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 22.5rem;
+  border-radius: 0 0 0.25rem 0.25rem;
+  position: relative;
+}
+
+@media (max-width: 46.875rem) {
+  .timeline-cover {
+    min-height: 15.625rem;
+  }
+}
+
+/*Timeline Menu for Large Screens*/
+
+.timeline-cover .timeline-nav-bar {
+  background: rgba($black-primary, 0.7);
+  width: 100%;
+  position: absolute;
+  bottom: 1.5625rem;
+}
+
+.timeline-cover .timeline-nav-bar .profile-info {
+  position: absolute;
+  text-align: center;
+  padding: 0 1.25rem;
+  top: -6.25rem;
+  z-index: 999;
+}
+
+.timeline-cover .timeline-nav-bar .profile-info img.profile-photo {
+  height: 12.5rem;
+  width: 12.5rem;
+  border-radius: 50%;
+  border: 0.625rem solid $white-primary;
+  object-fit: cover;
+}
+
+input[type="file" i] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
+.timeline-cover .timeline-nav-bar ul.profile-menu {
+  margin: 0;
+  display: table;
+}
+
+.timeline-cover .timeline-nav-bar .profile-menu li {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0.9375rem 0;
+}
+
+.timeline-cover .timeline-nav-bar .profile-menu li a {
+  color: $white-primary;
+  padding: 0.9375rem;
+  text-decoration: none;
+}
+
+.timeline-cover .timeline-nav-bar .profile-menu li a.active {
+  color: $blue-primary;
+}
+
+.timeline-cover .timeline-nav-bar .profile-menu li a:hover {
+  color: $blue-primary;
+}
+
+.timeline-cover .timeline-nav-bar ul.follow-me {
+  margin: 0;
+  position: absolute;
+  right: 0.9375rem;
+  top: 0;
+}
+
+.timeline-cover .timeline-nav-bar .follow-me li {
+  padding: 0.5rem 0.9375rem;
+  color: $white-primary;
+}
+
+/*Timeline Menu for Small Screens*/
+
+.timeline-cover .navbar-mobile {
+  bottom: -13.75rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
+.timeline-cover .navbar-mobile .profile-info img.profile-photo {
+  border: 0.625rem solid $white-primary;
+  border-radius: 50%;
+  height: 12.5rem;
+  margin: auto;
+  width: 12.5rem;
+}
+
+.timeline-cover .navbar-mobile .mobile-menu ul {
+  margin: 0 0 1.25rem;
+}
+
+.timeline-cover .navbar-mobile .mobile-menu ul li {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  position: relative;
+}
+
+.timeline-cover .navbar-mobile .mobile-menu ul li::after {
+  content: "";
+  height: 1.25rem;
+  background: none;
+  border-right: 0.0625rem solid $white3;
+  position: absolute;
+  right: 0;
+}
+
+.timeline-cover .navbar-mobile .mobile-menu ul li:nth-child(4)::after {
+  content: none;
+}
+
+.timeline-cover .navbar-mobile .mobile-menu ul li a {
+  color: $grey3;
+}
+
+.timeline-cover .navbar-mobile .mobile-menu ul li a.active {
+  color: $blue-primary;
+}

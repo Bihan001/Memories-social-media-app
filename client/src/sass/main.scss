@@ -1,0 +1,73 @@
+@import "abstract/functions";
+@import "abstract/mixins";
+@import "abstract/variables/variables";
+
+@import "base/base";
+@import "base/typography";
+@import "base/image";
+
+@import "components/navbar";
+@import "components/buttons";
+@import "components/profileCard";
+@import "components/postContent";
+@import "components/postCreateBox";
+@import "components/postDate";
+@import "components/profileCard";
+@import "components/form";
+
+@import "layouts/rightSideBar";
+@import "layouts/newsfeedLinks";
+
+@import "pages/landing";
+@import "pages/about";
+@import "pages/album";
+@import "pages/peopleNearby";
+@import "pages/timeline";
+
+/*==================================================
+  CSS for width 992px
+  ==================================================*/
+
+@media only screen and (max-width: 992px) {
+  section h1.section-title {
+    font-size: 10.9375rem;
+    margin-bottom: -2.5rem;
+  }
+}
+
+/*==================================================
+  CSS for width 768px
+  ==================================================*/
+
+@media only screen and (max-width: 768px) {
+  .timeline #page-contents {
+    margin-top: 12.5rem !important;
+  }
+
+  section h1.section-title {
+    font-size: 5.625rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .nearby-user {
+    text-align: center;
+  }
+
+  .nearby-user button.btn-primary {
+    float: none !important;
+  }
+
+  .post-content .post-container .post-detail .reaction {
+    position: relative;
+  }
+}
+
+/*==================================================
+  CSS for width 480px
+  ==================================================*/
+
+@media only screen and (max-width: 480px) {
+  .post-contents .post-container .post-detail .reaction {
+    position: relative;
+  }
+}

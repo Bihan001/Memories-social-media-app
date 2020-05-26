@@ -1,0 +1,17 @@
+.create-post {
+  width: 100%;
+  min-height: 5.625rem;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 0.0625rem solid $white3;
+}
+
+.create-post .form-group {
+  margin-bottom: 0;
+  display: inline-flex;
+}
+
+.create-post .form-group img.profile-photo-md {
+  margin-right: 0.625rem;
+  object-fit: cover;
+}

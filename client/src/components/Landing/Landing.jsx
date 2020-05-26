@@ -3,7 +3,6 @@ import Signin from "./Signin";
 import Signup from "./Signup";
 import Signup2 from "./Signup2";
 import Signup3 from "./Signup3";
-import '../../css/Landing.css';
 
 const Landing = () => {
   const [visibility, setVisibility] = useState("signin");

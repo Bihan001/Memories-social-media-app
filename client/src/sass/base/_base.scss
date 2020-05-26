@@ -19,6 +19,19 @@ body {
   box-sizing: border-box;
 }
 
+.container {
+  max-width: 65.625rem;
+}
+
+section .wrapper {
+  padding-top: 6.25rem;
+  padding-bottom: 6.25rem;
+}
+
+#page-contents {
+  padding: 1.875rem 0 3.125rem;
+}
+
 .md-form .prefix.active {
   color: #32be8fa6;
 }
