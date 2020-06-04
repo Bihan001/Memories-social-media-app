@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../../Middlewares/Auth');
 const User = require('../../../Models/UserSchema');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const { check, validationResult } = require('express-validator');
@@ -47,7 +47,10 @@ router.get('/all', auth, async (req, res) => {
 //Access - PUBLIC
 router.post(
   '/',
-  [check('email', 'Enter a valid email').isEmail(), check('password', 'Enter a password').not().isEmpty()],
+  [
+    check('email', 'Enter a valid email').isEmail(),
+    check('password', 'Enter a password').not().isEmpty(),
+  ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

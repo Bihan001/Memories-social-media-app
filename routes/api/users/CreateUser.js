@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../../../Models/UserSchema');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const { check, validationResult } = require('express-validator');
@@ -18,7 +18,9 @@ router.post(
     check('userName', 'Enter an username').not().isEmpty(),
     check('email', 'Enter a valid email').isEmail(),
     check('password', 'Enter a password').not().isEmpty(),
-    check('password', 'Minimum passowrd length should be 8').isLength({ min: 8 }),
+    check('password', 'Minimum passowrd length should be 8').isLength({
+      min: 8,
+    }),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -31,11 +33,15 @@ router.post(
 
       var user = await User.findOne({ email });
       if (user) {
-        return res.status(401).json({ errors: [{ msg: 'Email already exists' }] });
+        return res
+          .status(401)
+          .json({ errors: [{ msg: 'Email already exists' }] });
       }
       user = await User.findOne({ userName });
       if (user) {
-        return res.status(401).json({ errors: [{ msg: 'Username already taken' }] });
+        return res
+          .status(401)
+          .json({ errors: [{ msg: 'Username already taken' }] });
       }
       newUser = new User({
         firstName,

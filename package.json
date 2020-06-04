@@ -13,7 +13,7 @@
   "author": "Bihan Chakraborty",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "bcryptjs": "^2.4.3",
     "cloudinary": "^1.21.0",
     "concurrently": "^5.2.0",
     "cors": "^2.8.5",
