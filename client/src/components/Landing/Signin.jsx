@@ -18,6 +18,7 @@ const Signin = ({
     password: '',
   });
   const onsignup1 = () => changeVisibility('signup1');
+  const onForgot = () => changeVisibility('forgotpass');
   const { email, password } = formData;
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -30,54 +31,65 @@ const Signin = ({
   //If logged in, redirect to dashboard
 
   if (isAuthenticated) {
-    return <Redirect to="/newsfeed" />;
+    return <Redirect to='/newsfeed' />;
   }
   return (
-    <div className="log-reg-area sign">
-      <h2 className="log-title text-center">Login</h2>
-      <form className="needs-validation" onSubmit={(e) => onSubmit(e)} noValidate>
-        <div className="form-group grey-text">
+    <div className='log-reg-area sign'>
+      <h2 className='log-title text-center'>Login</h2>
+      <form
+        className='needs-validation'
+        onSubmit={(e) => onSubmit(e)}
+        noValidate
+      >
+        <div className='form-group grey-text'>
           <MDBInput
-            label="Your email"
-            icon="envelope"
+            label='Your email'
+            icon='envelope'
             group
-            type="email"
+            type='email'
             required
             validate
-            error="wrong"
-            success="right"
-            name="email"
+            error='wrong'
+            success='right'
+            name='email'
             value={email}
             onChange={(e) => onChange(e)}
           />
         </div>
-        <div className="form-group grey-text">
+        <div className='form-group grey-text'>
           <MDBInput
-            label="Your password"
-            icon="lock"
+            label='Your password'
+            icon='lock'
             group
-            type="password"
+            type='password'
             required
             validate
-            name="password"
+            name='password'
             value={password}
             onChange={(e) => onChange(e)}
           />
         </div>
-        <div className="d-flex pt-2">
-          <p style={{ width: '50%' }}>
-            New to Memories?{' '}
-            <Link to="#!" className="blue-text" onClick={onsignup1}>
-              Click Here
-            </Link>
-          </p>
+        <div className='d-flex pt-2'>
+          <Link
+            to='#!'
+            onClick={onsignup1}
+            style={{ width: '50%', fontSize: '.875rem' }}
+          >
+            New to Memories? Click Here
+          </Link>
 
-          <Link to="#!" title="" className="forgot-pwd ml-auto">
+          <Link to='#!' onClick={onForgot} className='forgot-pwd ml-auto'>
             Forgot Password?
           </Link>
         </div>
-        <div className="submit-btns pt-0">
-          <MDBBtn outline color="cyan" size="sm" type="submit" disabled={!isAuthenticated && request}>
+        <div className='submit-btns pt-0'>
+          <MDBBtn
+            outline
+            color='cyan'
+            size='sm'
+            type='submit'
+            disabled={!isAuthenticated && request}
+          >
             Login
           </MDBBtn>
         </div>

@@ -10,6 +10,12 @@ import {
   GET_PROFILE,
   LOGIN_REQUEST,
   REGISTRATION_REQUEST,
+  FORGOTPASS_REQUEST,
+  RESETPASS_REQUEST,
+  FORGOTPASS_SUCCESS,
+  FORGOTPASS_FAIL,
+  RESETPASS_SUCCESS,
+  RESETPASS_FAIL,
 } from '../actions/types';
 
 const initialStates = {
@@ -22,6 +28,8 @@ const initialStates = {
   request: {
     loginRequest: false,
     registrationRequest: false,
+    forgotpassRequest: false,
+    resetpassRequest: false,
   },
 };
 
@@ -42,6 +50,40 @@ export default function (state = initialStates, action) {
         request: {
           ...state.request,
           registrationRequest: true,
+        },
+      };
+    case FORGOTPASS_REQUEST:
+      return {
+        ...state,
+        request: {
+          ...state.request,
+          forgotpassRequest: true,
+        },
+      };
+    case RESETPASS_REQUEST:
+      return {
+        ...state,
+        request: {
+          ...state.request,
+          resetpassRequest: true,
+        },
+      };
+    case FORGOTPASS_SUCCESS:
+    case FORGOTPASS_FAIL:
+      return {
+        ...state,
+        request: {
+          ...state.request,
+          forgotpassRequest: false,
+        },
+      };
+    case RESETPASS_SUCCESS:
+    case RESETPASS_FAIL:
+      return {
+        ...state,
+        request: {
+          ...state.request,
+          resetpassRequest: false,
         },
       };
     case USER_LOADED:
